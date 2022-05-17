@@ -16,24 +16,24 @@ const images = [
 const ulEl = document.querySelector(".gallery");
 
 
-images.forEach(image => {
-  ulEl.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src = "${image.url}" alt = "${image.alt}"  width = "250" class ="gallery__element"/></li>`,
-  );
- });
+const galleryList = images.map((image) => 
+`<li><img src = "${image.url}" alt = "${image.alt}"  width = "250" class ="gallery__element"/></li>`);
 
- const listEl = ulEl.querySelectorAll("li");
- listEl.forEach(element =>{
-   element.style.listStyleType ="none";
-   console.log(element);
+console.log(...galleryList);
 
-   element.style.display ="flex";  
-   element.style.marginBottom ="20px";
+ulEl.insertAdjacentHTML("afterbegin", galleryList); 
 
-   element.style.justifyContent ="center"; 
+const listEl = ulEl.querySelectorAll("li");
 
-   element.firstChild.style.border ="5px outset grey";
+listEl.forEach(element =>{
+ element.style.listStyleType ="none";
+ console.log(element);
+
+ element.style.display ="flex";  
+ element.style.marginBottom ="20px";
+
+ element.style.justifyContent ="center"; 
+ element.firstChild.style.border ="5px outset grey";
  })
  
  
